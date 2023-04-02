@@ -10,10 +10,13 @@ class Product <ActiveRecord::Base
 
 end
 
-
-
 get '/' do
+	@products = Product.all
 	erb :index
+end
+
+get '/cart' do
+	erb :cart
 end
 
 get '/about' do

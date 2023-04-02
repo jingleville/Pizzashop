@@ -1,4 +1,38 @@
 <h2> Hello </h2>
 <h3> Welcome to pizzashop </h3>
 
+
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col-md-4">
+      <div>
+        <%= product.title %>
+      </div>
+
+      <div>
+        <img src="<%= product.path_to_image %>">
+      </div>
+
+      <div>
+        <%= product.decription %>
+      </div>
+
+      <div>
+        Price is: <%= product.price %> rub
+      </div>
+
+      <div>
+        <button type="button" class="btn btn-sm btn-success">Add to cart</button>
+      </div>
+
+      <br />
+      
+    </div>
+
+
+  <% end %>
+</div>
+
+<br />
+<br />
 <button class="btn btn-primary" onclick="smth()"> Click me! </button>
