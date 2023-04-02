@@ -12,4 +12,4 @@ get '/about' do
 end
 
 
-# started lesson 32
+# lesson 32 40:00
