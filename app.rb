@@ -19,6 +19,10 @@ get '/cart' do
 	erb :cart
 end
 
+post '/cart' do
+	erb :cart
+end
+
 get '/about' do
 	erb :about
 end
