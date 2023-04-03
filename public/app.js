@@ -45,8 +45,24 @@ function items_list(){
 function update_orders_list() {
   var orders = items_list();
 
-  $("orders_input").val(orders);
+  $("#orders_input").val(orders);
 }
+
+function update_orders_button() {
+  var text = "Cart(" + total() + ")";
+
+  $("#orders_button").val(text);
+}
+
+function update_labels() {
+  Object.keys(window.localStorage).forEach(function(key){
+    if(key.indexOf('product_') == 0) {
+      var x = document.getElementById(key);
+      x.innerHTML = window.localStorage.getItem(key);
+    }
+  });
+}
+
 
 function add_to_cart(id, modifyer)
 {
@@ -67,11 +83,9 @@ function add_to_cart(id, modifyer)
   
   window.localStorage.setItem(key, x);
 
+  var lbl = document.getElementById(key);
+  lbl.innerHTML = x;
+
   var orders = items_list();
-  console.log(orders);
   $("#orders_input").val(orders);
-
-
-  console.log('amount of ' + key + ' is ' + x);
-  console.log(total());
 }

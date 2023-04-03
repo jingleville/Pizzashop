@@ -25,7 +25,11 @@
         <div class="col-3 col-sm-1">
           <button class="btn btn-sm btn-success" onclick="add_to_cart(<%= product.id %>, '-')"> - </button>
         </div>
-
+        <div class="col-2 col-sm-1">
+          <h4>
+            <label id = <%= "product_" + product.id.to_s %>>0</label>
+          </h4>
+        </div>
         <div class="col-1 col-sm-3">
           <button class="btn btn-sm btn-success" onclick="add_to_cart(<%= product.id %>, '+')"> + </button>
         </div>
@@ -42,3 +46,11 @@
 <br />
 <br />
 <button class="btn btn-primary" onclick="smth()"> Click me! </button>
+
+<script type"text/JavaScript'>
+  $(function() {
+    update_orders_list();
+    update_orders_button();
+    update_labels();
+  });
+</script>
