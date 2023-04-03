@@ -10,21 +10,6 @@ function total()
   return result
 }
 
-function total_2(){
-  var result = 0;
-
-  for(var i = 0; i < window.localStorage.length; i++) {
-    var key = window.localStorage.key(i);
-    
-    if(key.indexOf('product_') == 0) {
-      var value = window.localStorage.getItem(key);
-      result = result + value * 1;
-    }
-  }
-
-  return result
-}
-
 function items_list(){
   var result = "";
 
@@ -33,24 +18,23 @@ function items_list(){
     
     if(key.indexOf('product_') == 0) {
       var value = window.localStorage.getItem(key);
-      result = result + key + "=" + value + ",";
+      result = result + key + "=" + value + ";";
     }
-
-
   }
-
   return result
+}
+
+function clean_localstorage(){
+  window.localStorage.clear()
 }
 
 function update_orders_list() {
   var orders = items_list();
-
   $("#orders_input").val(orders);
 }
 
 function update_orders_button() {
   var text = "Cart(" + total() + ")";
-
   $("#orders_button").val(text);
 }
 
@@ -62,7 +46,6 @@ function update_labels() {
     }
   });
 }
-
 
 function add_to_cart(id, modifyer)
 {
@@ -86,6 +69,7 @@ function add_to_cart(id, modifyer)
   var lbl = document.getElementById(key);
   lbl.innerHTML = x;
 
-  var orders = items_list();
-  $("#orders_input").val(orders);
+  update_orders_list();
+  update_labels();
+  update_orders_button();
 }
