@@ -23,5 +23,4 @@ get '/about' do
 	erb :about
 end
 
-
-# lesson 32 40:00
+#finished lesson 33

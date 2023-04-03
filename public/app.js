@@ -2,9 +2,27 @@ function total()
 {
   var result = 0;
   Object.keys(window.localStorage).forEach(function(key){
-    result = result + localStorage.getItem(key) * 1
+    if(key.indexOf('product_') == 0) {
+      var value = window.localStorage.getItem(key);
+      result = result + value * 1;
+    }
   });
   return result
+}
+
+function total_2(){
+  var result = 0;
+
+  for(var i = 0; i < window.localStorage.length; i++) {
+    var key = window.localStorage.key(i);
+    
+    if(key.indexOf('product_') == 0) {
+      var value = window.localStorage.getItem(key);
+      result = result + value * 1;
+    }
+
+
+  }
 }
 
 function add_to_cart(id, modifyer)
