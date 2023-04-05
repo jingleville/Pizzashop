@@ -55,6 +55,9 @@ function add_to_cart(id, modifyer)
   if (modifyer == '+') {
     var mod = 1;
   } else {
+    if (x == 0) {
+      return;
+    }
     var mod = -1;
   }
 

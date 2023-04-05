@@ -1,0 +1,43 @@
+<h2> Hello </h2>
+<h3> Welcome to pizzashop </h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order_list.each do |row| %>
+      <% id = row.split('=')[0].sub('product_','').to_i %>
+      <tr>
+        <th scope="row"> <%= @products.find(id).title %> </th>
+        <td> <%= row.split('=')[1] %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<form action="/order" method="POST" role="form">
+
+  
+
+  <div class="form-group">
+  <input id="orders_input" name="order" type="hidden" value="<%= @order %>"/>
+    <label>Ваше имя</label>
+    <input name="username" type="text" class="form-control" placeholder="Ваше имя" value="">
+    <br />
+    <label>Phone</label>
+    <input name="phone" type="text" class="form-control" placeholder="Phone" value="">
+    <br />
+    <label>Address</label>
+    <p><textarea rows="1" cols="20" name="address"></textarea></p>
+    <br />
+  </div>
+
+  <button type="submit" class="btn btn-primary" onclick="clean_localstorage()">Order</button>
+
+</form>
+
